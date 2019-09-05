@@ -45,21 +45,34 @@ const bubbleSort = arr => {
     return arrInt
 };
 
-const interval = () => {
+const Vizualisation = () => {
     let i = 0;
     let lines = document.getElementsByClassName("line")
-    console.log(recordedChanges)
     let interval = setInterval(() => {
-
-        //init(recordedChanges[i].map(({height})=> height))
         init(recordedChanges[i])
         if (recordedChanges[i+1] === undefined) clearInterval(interval)
         i++
     }, 20);
 };
 
+const handleSubmit = (event) =>{
+    event.preventDefault()
+}
+
+
+
+const options = document.getElementById("options")
+const radio = options.children
+document.getElementById("options").onsubmit = function(e){
+    e.preventDefault()
+    
+    if (radio[1].checked){
+
+        bubbleSort(JSON.parse(JSON.stringify(newArray)));
+        Vizualisation();
+    }
+
+}
+
 randomArray()
 init(inputArray);
-let sortedArray = bubbleSort(JSON.parse(JSON.stringify(newArray)));
-
-interval();
