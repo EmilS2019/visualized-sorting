@@ -32,3 +32,19 @@ const selectionSort = arr =>{
     }
     return arrInt
 }
+
+const insertionSort = arr =>{
+    let arrInt = []
+    arr.forEach(line => arrInt.push(line.height));
+    let temp;
+    for (let i = 0; i < arrInt.length; i++) {
+        j = i
+        while(j > 0 && arrInt[j-1] > arrInt[j]){
+
+            [arrInt[j-1], arrInt[j]] = [arrInt[j], arrInt[j-1]]
+            recordedChanges.push(JSON.parse(JSON.stringify(arrInt)));
+            j--
+        }
+    }
+    return arrInt
+}
