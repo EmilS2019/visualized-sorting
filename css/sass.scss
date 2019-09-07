@@ -30,16 +30,22 @@ body{
     #options {
         width: 50%;
         margin: 0 auto;
+        text-align: center;
+
+        button{
+            
+        }
+
+        input[type="radio"]{
+
+        }
       }
 
     .line-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-    
-        position: absolute;
-        bottom: 0;
-        left:40%;
+        min-height:710px;
     
         transform: rotate(180deg) scaleX(-1);
         
