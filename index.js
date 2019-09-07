@@ -32,11 +32,17 @@ const Vizualisation = () => {
 };
 
 const options = document.getElementById("options")
-const radio = options.children
+const radio = options.children[0].children;
+for (let i = 1; i < 4; i++) {
+    radio[i].addEventListener("click", function(e){
+        console.log("here")
+    })  
+}
+
+
 document.getElementById("options").onsubmit = function(e){
     e.preventDefault()
     options[0].setAttribute("disabled", true)
-
     if (radio[1].checked){
         bubbleSort(newArray);
         Vizualisation();

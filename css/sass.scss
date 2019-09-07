@@ -25,19 +25,23 @@ body{
     background-color: map-get($colors, Theme-1-hex); 
 }
 
-.main-wrap{
+#main-wrap{
 
     #options {
-        width: 50%;
+        width: 100%;
+        height:40px;
         margin: 0 auto;
         text-align: center;
+        justify-content: center;
+        background-color: map-get($colors, Theme-5-hex );
+        
 
-        button{
-            
-        }
+        .sortContainer{
 
-        input[type="radio"]{
-
+            div, button{
+                margin-top:0.55em;
+                display:inline-block;
+            }
         }
       }
 

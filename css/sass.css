@@ -8,13 +8,23 @@ body {
   background-color: #C7D9DF;
 }
 
-.main-wrap #options {
-  width: 50%;
+#main-wrap #options {
+  width: 100%;
+  height: 40px;
   margin: 0 auto;
   text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #F1DEE0;
 }
 
-.main-wrap .line-container {
+#main-wrap #options .sortContainer div, #main-wrap #options .sortContainer button {
+  margin-top: 0.55em;
+  display: inline-block;
+}
+
+#main-wrap .line-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,7 +37,7 @@ body {
           transform: rotate(180deg) scaleX(-1);
 }
 
-.main-wrap .line-container .line {
+#main-wrap .line-container .line {
   width: 25px;
   height: 200px;
   color: transparent;

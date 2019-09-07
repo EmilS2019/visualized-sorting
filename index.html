@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
   </head>
   <body>
-    <div class="main-wrap">
-      <form id="options">
-
-        <button type="submit" id="submit-button">Sort</button>
-        <input class="sortChoise" type="radio" name="sorting-type" value="bubbleSort">Bubble Sort</input>
-        <input class="sortChoise" type="radio" name="sorting-type" value="selectionSort">Selection Sort</input>
-        <input class="sortChoise" type="radio" name="sorting-type" value="insertionSort">Insertion Sort</input>
-      </form>
-        <div class="line-container"></div>
+    <div id="main-wrap">
+      <div id="options">
+        <div class="sortContainer">
+          <button type="submit" id="submit-button">Sort</button>
+          <div class="sortButton">Bubble Sort</div>
+          <div class="sortButton">Selection Sort</div>
+          <div class="sortButton">Insertion Sort</div>
+        </div>
+      </div>
+      <div class="line-container"></div>
     </div>
     <script src="sortAlgo.js"></script>
     <script src="index.js"></script>
