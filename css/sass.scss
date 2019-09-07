@@ -25,6 +25,10 @@ body{
     background-color: map-get($colors, Theme-1-hex); 
 }
 
+.selectedSortMethod{
+    color:red;
+}
+
 #main-wrap{
 
     #options {
@@ -35,15 +39,18 @@ body{
         justify-content: center;
         background-color: map-get($colors, Theme-5-hex );
         
-
         .sortContainer{
 
             div, button{
                 margin-top:0.55em;
                 display:inline-block;
             }
+
+            .sortButton{
+                
+            }
         }
-      }
+    }
 
     .line-container {
         display: flex;

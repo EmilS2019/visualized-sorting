@@ -32,31 +32,38 @@ const Vizualisation = () => {
 };
 
 const options = document.getElementById("options")
-const radio = options.children[0].children;
+const sortCont = options.children[0].children;
+let chosenSortMethod = ""
 for (let i = 1; i < 4; i++) {
-    radio[i].addEventListener("click", function(e){
-        console.log("here")
+    sortCont[i].addEventListener("click", function(e){
+        for (let j = 1; j < 4; j++) {
+            let button = options.children[0].children[j]
+            button.classList.remove("selectedSortMethod")
+        }
+        this.classList.add("selectedSortMethod");
+        chosenSortMethod = this.attributes.value.value;
     })  
 }
 
-
-document.getElementById("options").onsubmit = function(e){
-    e.preventDefault()
-    options[0].setAttribute("disabled", true)
-    if (radio[1].checked){
-        bubbleSort(newArray);
-        Vizualisation();
+sortCont[0].addEventListener("click", function(e){
+    sortCont[0].setAttribute("disabled", true)
+    switch(chosenSortMethod){
+        case "bubble":
+            bubbleSort(newArray);
+            Vizualisation();
+            break;
+        case "selection":
+            selectionSort(newArray);
+            Vizualisation();
+            break;
+        case "insertion":
+            insertionSort(newArray)
+            Vizualisation()
+            break;
+        default:
+        sortCont[0].removeAttribute("disabled")
     }
-    else if (radio[2].checked){
-        selectionSort(newArray);
-        Vizualisation();
-    }
-    else if (radio[3].checked){
-        insertionSort(newArray)
-        Vizualisation()
-    }
-
-}
+})
 
 randomArray()
 init(inputArray);

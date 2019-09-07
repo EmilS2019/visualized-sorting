@@ -8,6 +8,10 @@ body {
   background-color: #C7D9DF;
 }
 
+.selectedSortMethod {
+  color: red;
+}
+
 #main-wrap #options {
   width: 100%;
   height: 40px;
