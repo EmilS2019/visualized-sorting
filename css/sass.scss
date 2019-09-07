@@ -1,0 +1,53 @@
+$colors:(
+    mycolor: #005DFF,
+
+    myPurple:#9476AD,
+    myBiege:#E0C496,
+    myPurple2:#B39BC7,
+    myGreen: #659477,
+    myGreen2:#597A66,
+
+    Theme-1-hex: #C7D9DF,
+    Theme-2-hex: #37829A,
+    Theme-3-hex: #204766,
+    Theme-4-hex: #E6AFAD,
+    Theme-5-hex: #F1DEE0,
+
+);
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: map-get($colors, Theme-1-hex); 
+}
+
+.main-wrap{
+
+    #options {
+        width: 50%;
+        margin: 0 auto;
+      }
+
+    .line-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    
+        position: absolute;
+        bottom: 0;
+        left:40%;
+    
+        transform: rotate(180deg) scaleX(-1);
+        
+        .line {
+            width: 25px;
+            height: 200px;
+            color: transparent;
+            margin-left:2px; 
+        }
+    }
+}
