@@ -23,41 +23,55 @@ $colors:(
 
 body{
     background-color: map-get($colors, Theme-1-hex); 
+    overflow:hidden;
 }
 
 .selectedSortMethod{
     color:map-get($colors, Theme-2-hex);
 }
 
+@mixin mobile{
+    @media (max-width:860px) {
+        @content;
+    }
+}
+
 #main-wrap{
 
+    // overflow: hidden;
     #options {
+        display: block;
         width: 100%;
         height:57px;
         margin: 0 auto;
         text-align: center;
         justify-content: center;
-        // background-color: map-get($colors, Theme-5-hex );
-        background-color: white;
         font-weight: bold;
         color:rgb(39, 39, 39);
         letter-spacing: 0.06em;
 
         .sortContainer{
+            background-color: white;
+            z-index: 10;
             div, button{
                 display:inline-block;
+                z-index: 11;
             }
             .sortButton{
                 padding:19px 20px;
                 margin-top:-1px;
+                @include mobile{
+
+                }
+
 
                 &:hover{
-                    background:map-get($colors, Theme-4-hex);
+                    background:darken(white, 10%);
                     cursor: pointer;
                 }
 
                 &:active{
-                    background:darken(map-get($colors, Theme-4-hex), 10%);
+                    background:darken(white, 20%);
                 }
 
                 &::selection{
@@ -67,31 +81,43 @@ body{
 
             .sort{
                 padding: 20px 80px;
-                font-weight: 800;
-
+                font-weight: 900;
+                letter-spacing:0.09em;
             }
         }
     }
 
     .line-container {
+        z-index: -2;
         display: flex;
         flex-wrap: wrap;
 
         justify-content: space-around;
         min-height:710px;
-        
+        margin-top:100px;
+
         transform: rotate(180deg) scaleX(-1);
         
         .line {
             flex-grow:1;
-
-            min-width: 9px;
             height: 200px;
             color: transparent;
             margin-left:2px; 
             background:map-get($colors, Theme-2-hex);
             border: solid 1.5px lighten(map-get($colors, Theme-2-hex), 20%);
             box-shadow: 3px 1px 10px rgba(0,0,0,00.2); 
+        }
+    }
+
+    #footer{
+        background:white;
+        position:absolute;
+        width:100%;
+        padding:50px 0;
+        text-align: center;
+        p{
+            position:relative;
+            margin-bottom: 3em;
         }
     }
 }

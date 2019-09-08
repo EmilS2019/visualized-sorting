@@ -14,7 +14,6 @@ const bubbleSort = arr => {
     return arrInt
   };
 
-
 const selectionSort = arr =>{
     let arrInt = []
     arr.forEach(line => arrInt.push(line.height));
@@ -49,9 +48,37 @@ const insertionSort = arr =>{
     return arrInt
 }
 
-const mergeSort = arr =>{
-    let arrInt = []
-    arr.forEach(line => arrInt.push(line.height));
+const partition = (arrInt, start, end) => {
+    
+    let i = start + 1;
+    let piv = arrInt[start]
 
-    return arrInt
+    for (let j = start + 1; j <= end; j++) {
+        if(arrInt[j] < piv){
+            [arrInt[i], arrInt[j]] = [arrInt[j], arrInt[i]]
+            i++
+            recordedChanges.push(JSON.parse(JSON.stringify(arrInt))); 
+        }   
+    }
+    [arrInt[start], arrInt[i-1]] = [arrInt[i-1], arrInt[start]]
+    recordedChanges.push(JSON.parse(JSON.stringify(arrInt))); 
+    
+    return i-1;
+}
+
+const quickSort = (arr, start, end) => {
+    
+    let arrInt = []
+    arr[0].height !== undefined ? arr.forEach(line => arrInt.push(line.height)) 
+    : arrInt = arr;
+    
+
+    if (start < end){
+        
+        let piv_pos = partition(arrInt, start, end)
+        quickSort(arrInt, start, piv_pos - 1);
+        quickSort(arrInt,piv_pos+1, end)
+    
+    }
+    //return arrInt
 }

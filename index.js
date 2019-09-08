@@ -34,9 +34,9 @@ const Vizualisation = () => {
 const options = document.getElementById("options")
 const sortCont = options.children[0].children;
 let chosenSortMethod = ""
-for (let i = 1; i < 4; i++) {
+for (let i = 1; i < 5; i++) {
     sortCont[i].addEventListener("click", function(e){
-        for (let j = 1; j < 4; j++) {
+        for (let j = 1; j < 5; j++) {
             let button = options.children[0].children[j]
             button.classList.remove("selectedSortMethod")
         }
@@ -62,6 +62,9 @@ sortCont[0].addEventListener("click", function(e){
                 insertionSort(newArray)
                 Vizualisation()
                 break;
+            case "quick":
+                quickSort(newArray, 0, newArray.length - 1)
+                Vizualisation()
             default:
             alreadyClicked=false;
             sortCont[0].style = ""          
