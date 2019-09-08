@@ -16,7 +16,6 @@ body {
 #main-wrap #options {
   display: block;
   width: 100%;
-  height: 57px;
   margin: 0 auto;
   text-align: center;
   -webkit-box-pack: center;
@@ -38,7 +37,7 @@ body {
 }
 
 #main-wrap #options .sortContainer .sortButton {
-  padding: 19px 20px;
+  padding: 20px 20px;
   margin-top: -1px;
 }
 
