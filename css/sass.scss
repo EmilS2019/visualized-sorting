@@ -21,79 +21,128 @@ $colors:(
     font-family: Montserrat;
 }
 
+
+@mixin mobile{
+    @media (max-width:866px) {
+        @content;
+    }
+}
+
 body{
-    background-color: map-get($colors, Theme-1-hex); 
-    overflow:hidden;
+    overflow-x:hidden;
+    background-color: rgb(238, 238, 238);
+
 }
 
 .selectedSortMethod{
     color:map-get($colors, Theme-2-hex);
 }
 
-@mixin mobile{
-    @media (max-width:860px) {
-        @content;
-    }
+
+@mixin slider{
+    width: 22px;
+    height: 22px;
+    background: rgb(77, 77, 77);
+    cursor: pointer;
+    border-radius: 150px; 
 }
+
+.slider {
+    -webkit-appearance: none;
+    width: 50%;
+    height: 25px;
+    background: #cccccc;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+
+    &:hover{
+        opacity: 1;
+    }
+
+    &::-webkit-slider-thumb {
+        @include slider()
+    }
+    
+    &::-moz-range-thumb{
+        @include slider()
+    }
+}  
 
 #main-wrap{
 
-    // overflow: hidden;
     #options {
         display: block;
         width: 100%;
         margin: 0 auto;
         text-align: center;
         justify-content: center;
-        // font-weight: bold;
         color:rgb(39, 39, 39);
         letter-spacing: 0.06em;
 
         .sortContainer{
-            background-color: white;
+            background-color: rgb(238, 238, 238);
             z-index: 10;
-            div, button{
-                display:inline-block;
-                z-index: 11;
+            .theButtons{
+                margin-left:20px;
+                div, button{
+                    display:inline-block;
+                    z-index: 11;
+                }
+                .sortButton{
+                    padding:20px 20px;
+                    margin-top:-1px;
+                    transition: background 0.3s, color 0.3s;
+                    
+                    &:hover{
+                        background:darken(white, 10%);
+                        cursor: pointer;
+                    }
+                    
+                    &:active{
+                        background:darken(white, 20%);
+                    }
+                    
+                    &::selection{
+                        color:inherit
+                    }
+                }
+                
+                .sort{
+                    padding: 20px 80px;
+                    font-weight: 900;
+                    letter-spacing:0.09em;
+                    box-shadow: 2px 2px 10px rgba(0,0,0,00.2);
+                }
             }
-            .sortButton{
-                padding:20px 20px;
-                margin-top:-1px;
-                @include mobile{
 
+            .range{
+                width:100%;
+                padding:10px;
+                padding-top:0;
+                p{
+                    padding-bottom: 5px;
+                    margin-top:5px;
                 }
 
-
-                &:hover{
-                    background:darken(white, 10%);
-                    cursor: pointer;
+                label{
+                    padding-bottom: 20px;
                 }
 
-                &:active{
-                    background:darken(white, 20%);
-                }
-
-                &::selection{
-                    color:inherit
-                }
             }
-
-            .sort{
-                padding: 20px 80px;
-                font-weight: 900;
-                letter-spacing:0.09em;
-            }
+            
         }
     }
 
     .line-container {
+        background-color: map-get($colors, Theme-1-hex); 
         z-index: -2;
         display: flex;
         flex-wrap: wrap;
 
         justify-content: space-around;
         min-height:710px;
-        margin-top:100px;
 
         transform: rotate(180deg) scaleX(-1);
         
@@ -109,14 +158,14 @@ body{
     }
 
     #footer{
-        background:white;
         position:absolute;
         width:100%;
-        padding:50px 0;
+        padding:6px 0;
         text-align: center;
         p{
             position:relative;
             margin-bottom: 3em;
+            margin-top:1.5em;
         }
     }
 }

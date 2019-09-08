@@ -5,12 +5,44 @@
 }
 
 body {
-  background-color: #C7D9DF;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #eeeeee;
 }
 
 .selectedSortMethod {
   color: #37829A;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 25px;
+  background: #cccccc;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 22px;
+  height: 22px;
+  background: #4d4d4d;
+  cursor: pointer;
+  border-radius: 150px;
+}
+
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: #4d4d4d;
+  cursor: pointer;
+  border-radius: 150px;
 }
 
 #main-wrap #options {
@@ -26,44 +58,68 @@ body {
 }
 
 #main-wrap #options .sortContainer {
-  background-color: white;
+  background-color: #eeeeee;
   z-index: 10;
 }
 
-#main-wrap #options .sortContainer div, #main-wrap #options .sortContainer button {
+#main-wrap #options .sortContainer .theButtons {
+  margin-left: 20px;
+}
+
+#main-wrap #options .sortContainer .theButtons div, #main-wrap #options .sortContainer .theButtons button {
   display: inline-block;
   z-index: 11;
 }
 
-#main-wrap #options .sortContainer .sortButton {
+#main-wrap #options .sortContainer .theButtons .sortButton {
   padding: 20px 20px;
   margin-top: -1px;
+  -webkit-transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
-#main-wrap #options .sortContainer .sortButton:hover {
+#main-wrap #options .sortContainer .theButtons .sortButton:hover {
   background: #e6e6e6;
   cursor: pointer;
 }
 
-#main-wrap #options .sortContainer .sortButton:active {
+#main-wrap #options .sortContainer .theButtons .sortButton:active {
   background: #cccccc;
 }
 
-#main-wrap #options .sortContainer .sortButton::-moz-selection {
+#main-wrap #options .sortContainer .theButtons .sortButton::-moz-selection {
   color: inherit;
 }
 
-#main-wrap #options .sortContainer .sortButton::selection {
+#main-wrap #options .sortContainer .theButtons .sortButton::selection {
   color: inherit;
 }
 
-#main-wrap #options .sortContainer .sort {
+#main-wrap #options .sortContainer .theButtons .sort {
   padding: 20px 80px;
   font-weight: 900;
   letter-spacing: 0.09em;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#main-wrap #options .sortContainer .range {
+  width: 100%;
+  padding: 10px;
+  padding-top: 0;
+}
+
+#main-wrap #options .sortContainer .range p {
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+#main-wrap #options .sortContainer .range label {
+  padding-bottom: 20px;
 }
 
 #main-wrap .line-container {
+  background-color: #C7D9DF;
   z-index: -2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,7 +129,6 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   min-height: 710px;
-  margin-top: 100px;
   -webkit-transform: rotate(180deg) scaleX(-1);
           transform: rotate(180deg) scaleX(-1);
 }
@@ -92,15 +147,15 @@ body {
 }
 
 #main-wrap #footer {
-  background: white;
   position: absolute;
   width: 100%;
-  padding: 50px 0;
+  padding: 6px 0;
   text-align: center;
 }
 
 #main-wrap #footer p {
   position: relative;
   margin-bottom: 3em;
+  margin-top: 1.5em;
 }
 /*# sourceMappingURL=sass.css.map */

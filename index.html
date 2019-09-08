@@ -14,18 +14,20 @@
     <div id="main-wrap">
       <div id="options">
         <div class="sortContainer">
-          <div class="sortButton sort" id="submit-button" style="">SORT!</div>
-          <div class="sortButton" value="bubble">Bubble Sort</div>
-          <div class="sortButton" value="selection">Selection Sort</div>
-          <div class="sortButton" value="insertion">Insertion Sort</div>
-          <div class="sortButton" value="quick">Quick Sort</div>
-          
-          <br/>
-
-          <label>Frequency:<input type="range" id="linesSlider"/></label>
-          <label>Time Delay:<input type="range" id="speedSlider"/></label>
+          <div class="theButtons">
+            <div class="sortButton sort" id="submit-button" style="">SORT!</div>
+            <div class="sortButton" value="bubble">Bubble Sort</div>
+            <div class="sortButton" value="selection">Selection Sort</div>
+            <div class="sortButton" value="insertion">Insertion Sort</div>
+            <div class="sortButton" value="quick">Quick Sort</div>
+          </div>
+          <div class="range"><p>Frequency</p><input type="range" id="linesSlider" class="slider"/></div>
+          <div class="range"><p>Time Delay</p><input type="range" id="speedSlider"class="slider"/></div>
         </div>
       </div>
+
+
+
       <div class="line-container"></div>
 
       <footer id="footer">
