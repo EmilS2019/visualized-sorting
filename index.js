@@ -16,7 +16,7 @@ const init = arr => {
 
         let line = document.createElement("div");
         line.classList = "line";
-        line.style = `height:${height}px; order:${i}; background:black;`;
+        line.style = `height:${height}px; order:${i};`;
         line.id = `line-${i}`;
         document.getElementsByClassName("line-container")[0].appendChild(line);
   }
@@ -44,26 +44,33 @@ for (let i = 1; i < 4; i++) {
         chosenSortMethod = this.attributes.value.value;
     })  
 }
-
+alreadyClicked = false;
 sortCont[0].addEventListener("click", function(e){
-    sortCont[0].setAttribute("disabled", true)
-    switch(chosenSortMethod){
-        case "bubble":
-            bubbleSort(newArray);
-            Vizualisation();
-            break;
-        case "selection":
-            selectionSort(newArray);
-            Vizualisation();
-            break;
-        case "insertion":
-            insertionSort(newArray)
-            Vizualisation()
-            break;
-        default:
-        sortCont[0].removeAttribute("disabled")
+    if (alreadyClicked === false){
+        alreadyClicked = true;
+        sortCont[0].style = "color:lightgrey;"
+        switch(chosenSortMethod){
+            case "bubble":
+                bubbleSort(newArray);
+                Vizualisation();
+                break;
+            case "selection":
+                selectionSort(newArray);
+                Vizualisation();
+                break;
+            case "insertion":
+                insertionSort(newArray)
+                Vizualisation()
+                break;
+            default:
+            alreadyClicked=false;
+            sortCont[0].style = ""          
+            sortCont[0].removeAttribute("disabled")
+        }
     }
 })
+
+
 
 randomArray()
 init(inputArray);

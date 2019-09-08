@@ -18,7 +18,7 @@ $colors:(
 * {
     padding: 0;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Montserrat;
 }
 
 body{
@@ -26,28 +26,49 @@ body{
 }
 
 .selectedSortMethod{
-    color:red;
+    color:map-get($colors, Theme-2-hex);
 }
 
 #main-wrap{
 
     #options {
         width: 100%;
-        height:40px;
+        height:57px;
         margin: 0 auto;
         text-align: center;
         justify-content: center;
-        background-color: map-get($colors, Theme-5-hex );
-        
-        .sortContainer{
+        // background-color: map-get($colors, Theme-5-hex );
+        background-color: white;
+        font-weight: bold;
+        color:rgb(39, 39, 39);
+        letter-spacing: 0.06em;
 
+        .sortContainer{
             div, button{
-                margin-top:0.55em;
                 display:inline-block;
             }
-
             .sortButton{
-                
+                padding:19px 20px;
+                margin-top:-1px;
+
+                &:hover{
+                    background:map-get($colors, Theme-4-hex);
+                    cursor: pointer;
+                }
+
+                &:active{
+                    background:darken(map-get($colors, Theme-4-hex), 10%);
+                }
+
+                &::selection{
+                    color:inherit
+                }
+            }
+
+            .sort{
+                padding: 20px 80px;
+                font-weight: 800;
+
             }
         }
     }
@@ -55,16 +76,22 @@ body{
     .line-container {
         display: flex;
         flex-wrap: wrap;
+
         justify-content: space-around;
         min-height:710px;
-    
+        
         transform: rotate(180deg) scaleX(-1);
         
         .line {
-            width: 25px;
+            flex-grow:1;
+
+            min-width: 9px;
             height: 200px;
             color: transparent;
             margin-left:2px; 
+            background:map-get($colors, Theme-2-hex);
+            border: solid 1.5px lighten(map-get($colors, Theme-2-hex), 20%);
+            box-shadow: 3px 1px 10px rgba(0,0,0,00.2); 
         }
     }
 }

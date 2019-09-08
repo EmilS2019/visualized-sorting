@@ -48,3 +48,10 @@ const insertionSort = arr =>{
     }
     return arrInt
 }
+
+const mergeSort = arr =>{
+    let arrInt = []
+    arr.forEach(line => arrInt.push(line.height));
+
+    return arrInt
+}
