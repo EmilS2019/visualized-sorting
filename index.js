@@ -1,16 +1,17 @@
-let inputArray = [];
 let newArray = [];
 let recordedChanges = [];
 
 const randomArray = () =>{
-    for (let i = 0; i < 20; i++) {
-        inputArray.push(parseInt(Math.random()*600))
+    let arr = []
+    for (let i = 0; i < linesSlider.value; i++) {
+        arr.push(parseInt(Math.random()*600))
     }
+    return arr;
 }
 
 const init = arr => {
     document.getElementsByClassName("line-container")[0].innerHTML = ''
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < arr.length; i++) {
         let height = arr[i];
         newArray.push({ height: height, pos: i });
 
@@ -20,60 +21,27 @@ const init = arr => {
         line.id = `line-${i}`;
         document.getElementsByClassName("line-container")[0].appendChild(line);
   }
-};
+}
+
+init(randomArray());
+let interval;
 
 const Vizualisation = () => {
     let i = 0;
-    let interval = setInterval(() => {
+    interval = setInterval(() => {
         init(recordedChanges[i]);
         if (recordedChanges[i+1] === undefined) clearInterval(interval)
         i++
-    }, 200);
+    }, speedSlider.value);
 };
 
-const options = document.getElementById("options")
-const sortCont = options.children[0].children;
-let chosenSortMethod = ""
-for (let i = 1; i < 5; i++) {
-    sortCont[i].addEventListener("click", function(e){
-        for (let j = 1; j < 5; j++) {
-            let button = options.children[0].children[j]
-            button.classList.remove("selectedSortMethod")
-        }
-        this.classList.add("selectedSortMethod");
-        chosenSortMethod = this.attributes.value.value;
-    })  
+const reset = () =>{
+    newArray=[]
+    recordedChanges=[]
+    clearInterval(interval)
+    init(randomArray())
+    sortCont[0].style = ""          
+    sortCont[0].removeAttribute("disabled")
+    alreadyClicked=false;
+
 }
-alreadyClicked = false;
-sortCont[0].addEventListener("click", function(e){
-    if (alreadyClicked === false){
-        alreadyClicked = true;
-        sortCont[0].style = "color:lightgrey;"
-        switch(chosenSortMethod){
-            case "bubble":
-                bubbleSort(newArray);
-                Vizualisation();
-                break;
-            case "selection":
-                selectionSort(newArray);
-                Vizualisation();
-                break;
-            case "insertion":
-                insertionSort(newArray)
-                Vizualisation()
-                break;
-            case "quick":
-                quickSort(newArray, 0, newArray.length - 1)
-                Vizualisation()
-            default:
-            alreadyClicked=false;
-            sortCont[0].style = ""          
-            sortCont[0].removeAttribute("disabled")
-        }
-    }
-})
-
-
-
-randomArray()
-init(inputArray);

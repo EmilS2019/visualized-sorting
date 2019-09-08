@@ -21,7 +21,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-weight: bold;
   color: #272727;
   letter-spacing: 0.06em;
 }

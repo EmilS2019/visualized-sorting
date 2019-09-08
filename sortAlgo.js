@@ -72,13 +72,10 @@ const quickSort = (arr, start, end) => {
     arr[0].height !== undefined ? arr.forEach(line => arrInt.push(line.height)) 
     : arrInt = arr;
     
-
-    if (start < end){
-        
+    if (start < end){        
         let piv_pos = partition(arrInt, start, end)
         quickSort(arrInt, start, piv_pos - 1);
         quickSort(arrInt,piv_pos+1, end)
     
     }
-    //return arrInt
 }
