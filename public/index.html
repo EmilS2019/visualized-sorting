@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script defer src="/__/firebase/6.6.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/6.6.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.6.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.6.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.6.0/firebase-storage.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/sass.css" />
+    <style src="/css/sass.css"></style>
+  </head>
+  <body>
+    <div id="main-wrap">
+      <div id="options">
+        <div class="sortContainer">
+          <div class="theButtons">
+            <div class="sortButton sort" id="submit-button" style="">SORT!</div>
+            <div class="sortButton" value="bubble">Bubble Sort</div>
+            <div class="sortButton" value="selection">Selection Sort</div>
+            <div class="sortButton" value="insertion">Insertion Sort</div>
+            <div class="sortButton" value="quick">Quick Sort</div>
+          </div>
+          <div class="range"><p>Frequency</p><input type="range" id="linesSlider" class="slider"/></div>
+          <div class="range"><p>Time Delay</p><input type="range" id="speedSlider"class="slider"/></div>
+        </div>
+        <div class="line-container"></div>
+
+        <footer id="footer">
+          <p>Sorting Visualizer by Emil. September 2019</p>
+        </footer>
+  
+  
+      </div>
+      <script defer src="scripts/sortAlgo.js"></script>
+      <script defer src="scripts/optionsTab.js"></script>
+      <script defer src="scripts/index.js"></script>
+  
+      <script defer src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+      <!-- <script defer src="../firebase.js"></script> -->
+      </div>
+  </body>
+</html>
